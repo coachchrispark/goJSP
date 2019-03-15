@@ -1,8 +1,8 @@
-package com.tg.member;
+package net.tom.member;
 
 import java.util.Date;
 
-public class MemberDto {
+public class MyMemberDto {
 	
 	private	int no = 0;              
 	private	String name = ""; 
@@ -11,11 +11,11 @@ public class MemberDto {
 	private	Date createDate = null;
 	private	Date modifiedDate = null;
 	
-	public MemberDto() {
+	public MyMemberDto() {
 		super();
 	}
 	
-	public MemberDto(int no, String name, String email, Date createDate) {
+	public MyMemberDto(int no, String name, String email, Date createDate) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -23,7 +23,7 @@ public class MemberDto {
 		this.createDate = createDate;
 	}
 
-	public MemberDto(int no, String name, String email, String password, Date createDate, Date modifiedDate) {
+	public MyMemberDto(int no, String name, String email, String password, Date createDate, Date modifiedDate) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -83,7 +83,7 @@ public class MemberDto {
 
 	@Override
 	public String toString() {
-		return "MemberDto [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password
+		return "MyMemberDto [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password
 				+ ", createDate=" + createDate + ", modifiedDate=" + modifiedDate + "]";
 	}
 	

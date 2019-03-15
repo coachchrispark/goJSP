@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.tg.member.MemberDto"%>
+<%@page import="net.tom.member.MyMemberDto"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -20,17 +20,17 @@
 	<br/>
 	
 	<%
-		ArrayList<MemberDto> memberList = 
-			(ArrayList<MemberDto>)request.getAttribute("memberList");
+			ArrayList<MyMemberDto> myMemberList = 
+			(ArrayList<MyMemberDto>)request.getAttribute("myMemberList");
+			
+				for(MyMemberDto myMemberDto : myMemberList){
+		%>
 	
-		for(MemberDto memberDto : memberList){
-	%>
-	
-	<%=memberDto.getNo()%>,
-	<a href='./update?no=<%=memberDto.getNo()%>'><%=memberDto.getName()%></a>,
-	<%=memberDto.getEmail()%>,
-	<%=memberDto.getCreateDate()%>
-	<a href='./delete?no=<%=memberDto.getNo()%>'>[삭제]</a>
+	<%=myMemberDto.getNo()%>,
+	<a href='./update?no=<%=myMemberDto.getNo()%>'><%=myMemberDto.getName()%></a>,
+	<%=myMemberDto.getEmail()%>,
+	<%=myMemberDto.getCreateDate()%>
+	<a href='./delete?no=<%=myMemberDto.getNo()%>'>[삭제]</a>
 	<br>
 	
 	<%

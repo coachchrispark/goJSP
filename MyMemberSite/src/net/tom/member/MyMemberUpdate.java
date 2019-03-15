@@ -1,13 +1,11 @@
-package com.tg.member;
+package net.tom.member;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -17,8 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/member/update")
-public class MemberUpdate extends HttpServlet {
+@WebServlet(value = "/mymember/update")
+public class MyMemberUpdate extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -59,30 +57,30 @@ public class MemberUpdate extends HttpServlet {
 
 //			ArrayList<MemberDto> memberList = new ArrayList<MemberDto>();
 			
-			MemberDto memberDto = null;
+			MyMemberDto myMemberDto = null;
 			while (rs.next()) {
 				mNo = rs.getInt("MNO");
 				mName = rs.getString("MNAME");
 				email = rs.getString("email");
 				creDate = rs.getDate("cre_date");
 				
-				memberDto = new MemberDto();
+				myMemberDto = new MyMemberDto();
 				
-				memberDto.setNo(mNo);
-				memberDto.setName(mName);
-				memberDto.setEmail(email);
-				memberDto.setCreateDate(creDate);
+				myMemberDto.setNo(mNo);
+				myMemberDto.setName(mName);
+				myMemberDto.setEmail(email);
+				myMemberDto.setCreateDate(creDate);
 				
 //				memberList.add(memberDto);
 			}
 
 //			req.setAttribute("memberList", memberList);
 			
-			req.setAttribute("memberDto", memberDto);
+			req.setAttribute("myMemberDto", myMemberDto);
 			
 			res.setCharacterEncoding("UTF-8");
 			RequestDispatcher dispatcher = 
-					req.getRequestDispatcher("./memberDetailView.jsp");
+					req.getRequestDispatcher("./MyMemberDetailView.jsp");
 			
 			dispatcher.include(req, res);
 
